@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './style.css'
@@ -26,9 +26,6 @@ const Home = () => {
     const [doctorList, setDoctorList] = useState([])
     const [links, setLinks] = useState([])
     const [departments, setDepartments] = useState([])
-    const path = useRef(0)
-
-    console.log("aaaaaaaaaa", path.current);
 
     useEffect(() => {
         Promise.all([getFeatures(), getListPostById(35), getListPostById(11), getListPostById(9), getListPostById(10), getDoctorList(), getLinks(), getDepartments()]).then((response) => {
