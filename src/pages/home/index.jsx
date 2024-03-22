@@ -15,6 +15,9 @@ import { getDoctorList } from "../../api/doctorApi";
 import { base64Image, replaceImageUrl } from "../../utils";
 import { getLinks } from "../../api/linkBuildingAPi";
 import { getDepartments } from "../../api/departmentApi";
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [loading, setLoading] = useState(true)
@@ -26,9 +29,10 @@ const Home = () => {
     const [doctorList, setDoctorList] = useState([])
     const [links, setLinks] = useState([])
     const [departments, setDepartments] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
-        Promise.all([getFeatures(), getListPostById(35), getListPostById(11), getListPostById(9), getListPostById(10), getDoctorList(), getLinks(), getDepartments()]).then((response) => {
+        Promise.all([getFeatures(), getListPostById(35, 3), getListPostById(11, 3), getListPostById(9, 3), getListPostById(10, 3), getDoctorList(), getLinks(), getDepartments()]).then((response) => {
             setFeatures(response[0].data)
             setServiceList(response[1].data)
             setNewList(response[2].data)
@@ -37,6 +41,7 @@ const Home = () => {
             setDoctorList(response[5].data)
             setLinks(response[6].data)
             setDepartments(response[7].data)
+            window.scrollTo(0, 0)
             setLoading(false)
         })
     }, [])
@@ -45,7 +50,21 @@ const Home = () => {
         console.log("first", handler)
     }
 
-    if (loading) return <div>Loading...</div>
+    const onClickDoctor = (Id) => {
+        navigate('/bac-si/' + Id)
+    }
+
+    if (loading) return (
+        <Spin
+            indicator={
+                <LoadingOutlined
+                    style={{ fontSize: 80, color: '#03a45e' }}
+                    spin
+                />
+            }
+            style={{ height: '75vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        />
+    )
 
     return (
         <div className="container">
@@ -122,7 +141,7 @@ const Home = () => {
                     >
                         {doctorList.map(doctor => {
                             return (
-                                <SwiperSlide key={doctor.UserId} className="pro_item">
+                                <SwiperSlide key={doctor.UserId} className="pro_item" onClick={() => onClickDoctor(doctor.UserId)}>
                                     <img alt='' src={base64Image(doctor.Image)} />
                                     <div className="pro_info">
                                         <p className="degree">{doctor.Degrees}</p>

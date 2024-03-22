@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
+import Post from './pages/post'
+import DoctorProfile from './pages/doctorProfile'
 import Header from './layouts/header'
 import Footer from './layouts/footer'
 import './App.css'
@@ -20,6 +22,8 @@ export default function App() {
       <Header name={configuration.SEOTitle} slogan={configuration.Slogan} hotline={configuration.Hotline} phone={configuration.Phone} />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/tin-tuc/:id' element={<Post />} />
+        <Route path='/bac-si/:id' element={<DoctorProfile />} />
       </Routes>
       <Footer address={configuration.Address} email={configuration.Email} hotline={configuration.Hotline} phone={configuration.Phone} />
     </>
