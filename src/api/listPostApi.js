@@ -11,4 +11,9 @@ const getPostById = (id) => {
     return AxiosClient.get(url + '/Get/' + id)
 }
 
-export { getListPostById, getPostById }
+const getPostByPage = (categoryId, pageIndex, numberInPage) => {
+    const url = API.SPAPost
+    return AxiosClient.get(url + '/GetPaging?languageCode=vi&pageIndex=' + pageIndex + '&numberInPage=' + numberInPage + '&priority=1&categoryId=' + categoryId)
+}
+
+export { getListPostById, getPostById, getPostByPage }

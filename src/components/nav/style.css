@@ -27,3 +27,18 @@
     border-bottom: solid 3px #f8f8f8;
     padding-bottom: 15px;
 }
+
+@media screen and (max-width: 640px) {
+    .navbar {
+        width: 100%;
+        overflow: scroll;
+        text-wrap: nowrap;
+        justify-content: unset;
+        box-sizing: border-box;
+    }
+
+    .navbar li {
+        background-color: #03a45e;
+        padding: 20px 10px;
+    }
+}

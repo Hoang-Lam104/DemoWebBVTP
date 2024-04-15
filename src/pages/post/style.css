@@ -46,21 +46,3 @@
     color: #666666;
     font-weight: bold;
 }
-
-.more_post .post_items .post_item {
-    width: 70%;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.more_post .post_items .post_item img {
-    min-width: 200px;
-    width: 200px;
-    height: 100px;
-}
-
-.more_post .post_items .post_item .post_content {
-    margin-left: 20px;
-}

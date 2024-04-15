@@ -32,6 +32,7 @@ const Home = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         Promise.all([getFeatures(), getListPostById(35, 3), getListPostById(11, 3), getListPostById(9, 3), getListPostById(10, 3), getDoctorList(), getLinks(), getDepartments()]).then((response) => {
             setFeatures(response[0].data)
             setServiceList(response[1].data)
@@ -41,7 +42,6 @@ const Home = () => {
             setDoctorList(response[5].data)
             setLinks(response[6].data)
             setDepartments(response[7].data)
-            window.scrollTo(0, 0)
             setLoading(false)
         })
     }, [])
@@ -128,12 +128,11 @@ const Home = () => {
                         loop={true}
                         slidesPerView={4}
                         breakpoints={{
-                            375: {
+                            320: {
                                 slidesPerView: 1,
                             },
-                            400: {
+                            768: {
                                 slidesPerView: 4,
-
                             }
                         }}
                         navigation
@@ -209,6 +208,14 @@ const Home = () => {
                         spaceBetween={10}
                         loop={true}
                         slidesPerView={4}
+                        breakpoints={{
+                            320: {
+                                slidesPerView: 1,
+                            },
+                            768: {
+                                slidesPerView: 4,
+                            }
+                        }}
                         navigation
                         autoplay
                         style={{ marginTop: '50px' }}

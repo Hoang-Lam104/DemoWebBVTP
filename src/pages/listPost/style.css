@@ -1,0 +1,20 @@
+.post_list_container {
+    width: 80%;
+    margin: auto;
+}
+
+.post_list_container .post_list_header {
+    padding: 20px;
+    background-color: #03a45e;
+    color: #f6f6f6;
+    font-size: 38px;
+}
+
+.post_list_container .post_list_content {
+    padding: 30px 0;
+}
+
+.post_list_container .post_list_content .post_items {
+    width: 90%;
+    margin: auto;
+}

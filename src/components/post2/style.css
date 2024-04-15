@@ -1,0 +1,18 @@
+.post_item2 {
+    width: 70%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.post_item2 img {
+    min-width: 200px;
+    width: 200px;
+    height: 100px;
+}
+
+.post_item2 .post_content {
+    margin-left: 20px;
+}

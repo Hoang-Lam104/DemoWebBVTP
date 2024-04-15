@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getPostById } from "../../api/listPostApi";
 import './style.css'
-import { replaceImageUrl } from "../../utils"
 import { getListPostById } from "../../api/listPostApi"
+import Post2 from "../../components/post2";
 
 const Post = () => {
     const { id } = useParams()
-    const navigate = useNavigate()
     const [post, setPost] = useState({})
     const [postList, setPostList] = useState([])
 
@@ -19,14 +18,12 @@ const Post = () => {
     }, [id])
 
     useEffect(() => {
-        getListPostById(post.CategoryId, 5).then(response => {
-            setPostList(response.data)
-        })
-    }, [post.CategoryId])
-
-    const onClickPost = (Id) => {
-        navigate('/tin-tuc/' + Id)
-    }
+        if (post.CategoryId) {
+            getListPostById(post.CategoryId, 5).then(response => {
+                setPostList(response.data)
+            })
+        }
+    }, [post])
 
     return (
         <div className="post_container">
@@ -40,23 +37,17 @@ const Post = () => {
                 <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: post?.Detail }} />
             </div>
             <div className="more_post">
-            <p>Các tin khác</p>
-            <div className="post_items">
-                {postList.filter(item => item.Id != id)
-                    .map(item => {
-                        return (
-                            <div key={item.Id} className="post_item" onClick={() => onClickPost(item.Id)}>
-                                <img alt="" src={replaceImageUrl(item.Image)} />
-                                <div className="post_content">
-                                    <p style={{fontSize: '20px'}}>{item.TitleTran}</p>
-                                    <p style={{fontSize: '14px', fontWeight: 'lighter'}}>{item.DescriptionTrans}</p>
-                                    <p style={{fontSize: '12px', fontWeight: 'lighter'}}>{item.CreatedDate}</p>
-                                </div>
-                            </div>
-                        )
-                    })}
+                <p>Các tin khác</p>
+                <div className="post_items">
+                    {postList.filter(item => item.Id != id)
+                        .map(item => {
+                            return (
+                                <Post2 key={item.Id} post={item} />
+                            )
+                        })}
+                </div>
             </div>
-        </div>        </div>
+        </div>
     )
 }
 

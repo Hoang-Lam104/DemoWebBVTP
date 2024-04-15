@@ -14,7 +14,7 @@ const Slider = () => {
     }, [])
 
     return (
-        <Carousel autoplay>
+        <Carousel autoplay autoplaySpeed={5000}>
             {sliders.map(slider => {
                 return (
                     <div key={slider.Id}>
