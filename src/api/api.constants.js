@@ -1,4 +1,4 @@
-const DOMAIN_API = process.env.REACT_APP_API;
+const DOMAIN_API = process.env.REACT_APP_DOMAIN_API;
 
 export const AxiosClientConfig = {
     DOMAIN_API: DOMAIN_API,
