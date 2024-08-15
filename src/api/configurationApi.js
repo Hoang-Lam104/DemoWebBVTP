@@ -3,7 +3,7 @@ import { API } from "./api.constants.js";
 
 const getConfiguration = () => {
     const url = API.Configuration;
-    return AxiosClient.get(url + '/Get', {});
+    return AxiosClient.get(url + "/Get", {});
 };
 
 export { getConfiguration };

@@ -3,12 +3,12 @@ import { API } from "./api.constants";
 
 const getMenu = () => {
     const url = API.Category;
-    return AxiosClient.get(url + '/GetMenu', {})
-}
+    return AxiosClient.get(url + "/GetMenu", {});
+};
 
 const getCategoryById = (id) => {
     const url = API.Category;
-    return AxiosClient.get(url + '/GetCategory/' + id, {})
-}
+    return AxiosClient.get(url + "/GetCategory/" + id, {});
+};
 
-export { getMenu, getCategoryById }
+export { getMenu, getCategoryById };
