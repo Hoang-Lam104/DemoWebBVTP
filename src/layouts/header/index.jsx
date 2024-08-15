@@ -3,15 +3,17 @@ import React from 'react'
 import Logo from '../../assets/image/logo_vinh.png'
 import Navbar from '../../components/nav'
 
-export default function Header({name, slogan, phone, hotline}) {
+export default function Header({config}) {
+    const {SEOTitle, Slogan, Phone, Hotline} = config
+
     return (
         <header className="header">
             <div className="container">
                 <div className="logo">
                     <img alt="" src={Logo} />
                     <div className="title">
-                        <div className="name">{name}</div>
-                        <div className="desc">{slogan}</div>
+                        <div className="name">{SEOTitle}</div>
+                        <div className="desc">{Slogan}</div>
                     </div>
                 </div>
                 <div className="search_input">
@@ -54,7 +56,7 @@ export default function Header({name, slogan, phone, hotline}) {
                         </svg>
                         <div className="call">
                             <div className="title">Cấp cứu 24/7</div>
-                            <div className="number">{phone}</div>
+                            <div className="number">{Phone}</div>
                         </div>
                     </div>
                     <div className="phone" style={{ borderLeft: 'solid 1px #f8f8f8' }}>
@@ -82,7 +84,7 @@ export default function Header({name, slogan, phone, hotline}) {
                         </svg>
                         <div className="call">
                             <div className="title">Tổng đài CSKH</div>
-                            <div className="number">{hotline}</div>
+                            <div className="number">{Hotline}</div>
                         </div>
                     </div>
                 </div>

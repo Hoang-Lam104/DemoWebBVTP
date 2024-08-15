@@ -39,7 +39,7 @@ const Post = () => {
             <div className="more_post">
                 <p>Các tin khác</p>
                 <div className="post_items">
-                    {postList.filter(item => item.Id != id)
+                    {postList.filter(item => item.Id !== id)
                         .map(item => {
                             return (
                                 <Post2 key={item.Id} post={item} />

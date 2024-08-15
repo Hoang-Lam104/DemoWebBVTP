@@ -1,26 +1,24 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { getPostByPage } from "../../api/listPostApi"
-import { Pagination } from "antd"
-import './style.css'
-import Post2 from "../../components/post2"
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
+import { Pagination, Spin } from 'antd';
+import './style.css'
+import { getPostByPage } from "../../api/listPostApi";
+import Post2 from "../../components/post2";
 
-const PostList = () => {
-    const pageSize = 5
+const Departments = () => {
+    const pageSize = 4
     const { id } = useParams()
-    const [posts, setPosts] = useState([])
-    const [total, setTotal] = useState([])
-    const [pageIndex, setPageIndex] = useState(1)
+    const [departments, setDepartments] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [total, setTotal] = useState(0)
+    const [pageIndex, setPageIndex] = useState(1)
 
     useEffect(() => {
         window.scroll(0, 0)
         setIsLoading(true)
         getPostByPage(id, pageIndex, pageSize).then(response => {
-            setPosts(response.data.PostListViewModels)
+            setDepartments(response.data.PostListViewModels)
             setTotal(response.data.TotalItem)
             setIsLoading(false)
         })
@@ -42,14 +40,16 @@ const PostList = () => {
         />
     )
 
+    console.log(total, pageIndex);
+
     return (
-        <div className="post_list_container">
-            <div className='post_list_header'>
-                <p>{posts.length && posts[0].CategoryName}</p>
+        <div className="departments_container">
+            <div className='departments_header'>
+                <p>Chuyên Khoa</p>
             </div>
-            <div className="post_list_content">
+            <div className="departments_content">
                 <div className="post_items">
-                    {posts.map(post => {
+                    {departments.map(post => {
                         return (
                             <Post2 key={post.Id} post={post} />
                         )
@@ -57,15 +57,15 @@ const PostList = () => {
                 </div>
                 <Pagination
                     showSizeChanger={false}
-                    defaultPageSize={pageSize}
                     current={pageIndex}
-                    onChange={(page) => onChangePage(page)}
+                    defaultPageSize={pageSize}
                     total={total}
                     style={{ float: 'right' }}
+                    onChange={(page) => onChangePage(page)}
                 />
             </div>
         </div>
     )
 }
 
-export default PostList
+export default Departments

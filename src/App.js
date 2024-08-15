@@ -8,6 +8,7 @@ import Footer from './layouts/footer'
 import './App.css'
 import { useState, useEffect } from 'react'
 import { getConfiguration } from './api/configurationApi'
+import Departments from './pages/departments'
 
 export default function App() {
   const [configuration, setConfiguration] = useState({})
@@ -20,14 +21,15 @@ export default function App() {
 
   return (
     <>
-      <Header name={configuration.SEOTitle} slogan={configuration.Slogan} hotline={configuration.Hotline} phone={configuration.Phone} />
+      <Header config={configuration}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/tin-tuc/:id' element={<Post />} />
         <Route path='/danh-sach-tin-tuc/:id' element={<PostList />} />
+        <Route path='/chuyen-khoa/:id' element={<Departments />} />
         <Route path='/bac-si/:id' element={<DoctorProfile />} />
       </Routes>
-      <Footer address={configuration.Address} email={configuration.Email} hotline={configuration.Hotline} phone={configuration.Phone} />
+      <Footer config={configuration} />
     </>
   )
 }

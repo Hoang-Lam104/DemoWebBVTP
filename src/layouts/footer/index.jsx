@@ -1,10 +1,12 @@
-import './style.css'
+import './style.scss'
 import Logo from '../../assets/image/logo_vinh.png'
+import { Row, Col } from 'antd'
 
-const Footer = ({ address, email, hotline, phone }) => {
+const Footer = ({ config }) => {
+    const { Address, Email, Hotline, Phone } = config
     return (
-        <footer className='footer'>
-            <div className="footer_container">
+        <Row className='footer_container'>
+            <Col span={6}>
                 <div className="footer_content">
                     <img alt="" src={Logo} />
                     <div>
@@ -21,6 +23,8 @@ const Footer = ({ address, email, hotline, phone }) => {
                         <p style={{ color: '#616161', fontWeight: 'bold' }}>CT HĐQL - Giám Đốc Bệnh Viện</p>
                     </div>
                 </div>
+            </Col>
+            <Col span={6}>
                 <div className="footer_content">
                     <p className='title'>Trực lãnh đạo bệnh viện</p>
                     <p style={{
@@ -35,6 +39,8 @@ const Footer = ({ address, email, hotline, phone }) => {
                         0911 176 266
                     </p>
                 </div>
+            </Col>
+            <Col span={6}>
                 <div className="footer_content">
                     <p className='title'>Liên kết nhanh</p>
                     <ul style={{ lineHeight: '2', marginTop: '30px' }}>
@@ -46,15 +52,17 @@ const Footer = ({ address, email, hotline, phone }) => {
                         <li>Tin tức & Hoạt động</li>
                     </ul>
                 </div>
+            </Col>
+            <Col span={6}>
                 <div className="footer_content">
                     <p className='title'>Liên hệ chúng tôi</p>
                     <div>
                         <ul style={{ listStyleType: 'none', lineHeight: '1.5', marginTop: '30px' }}>
                             <li>
-                                <b>Địa chỉ:</b> {address}
+                                <b>Địa chỉ:</b> {Address}
                             </li>
-                            <li><b>Hotline:</b> {hotline} | <b>Đt:</b> {phone} </li>
-                            <li><b>Email:</b> {email}</li>
+                            <li><b>Hotline:</b> {Hotline} | <b>Đt:</b> {Phone} </li>
+                            <li><b>Email:</b> {Email}</li>
                         </ul>
                         <div className='nav'>
                             <a href='http://cms.benhvienthanhphovinh.vn/' target='_blank' rel="noreferrer">CMS</a>
@@ -63,8 +71,8 @@ const Footer = ({ address, email, hotline, phone }) => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </Col>
+        </Row>
     )
 }
 

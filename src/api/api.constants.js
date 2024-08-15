@@ -1,4 +1,4 @@
-const DOMAIN_API = 'https://apispa.bvtp.vn';
+const DOMAIN_API = process.env.REACT_APP_API;
 
 export const AxiosClientConfig = {
     DOMAIN_API: DOMAIN_API,
@@ -7,22 +7,22 @@ export const AxiosClientConfig = {
 };
 
 export const API = {
-    Configuration: 'api/Configuration',
-    Department: 'api/Department',
-    SPAPost: 'api/SPAPost',
-    Gallery: 'api/Gallery',
-    LinkBuilding: 'api/LinkBuilding',
-    QA: 'api/QA',
-    User: 'api/User',
-    Partner: 'api/Partner',
-    DepartmentService: 'api/DepartmentService',
-    Medinet: 'api/Medinet',
-    Schedule: 'api/Schedule',
-    Category: 'api/Category',
-    GalleryStore: 'api/GalleryStore',
-    Advertise: 'api/Advertise',
-    Appointment: 'api/Appointment',
-    Feature: 'api/Feature',
-    Slider: 'api/Slider',
-    DoctorProfile: 'api/DoctorProfile',
+    Configuration: 'Configuration',
+    Department: 'Department',
+    SPAPost: 'SPAPost',
+    Gallery: 'Gallery',
+    LinkBuilding: 'LinkBuilding',
+    QA: 'QA',
+    User: 'User',
+    Partner: 'Partner',
+    DepartmentService: 'DepartmentService',
+    Medinet: 'Medinet',
+    Schedule: 'Schedule',
+    Category: 'Category',
+    GalleryStore: 'GalleryStore',
+    Advertise: 'Advertise',
+    Appointment: 'Appointment',
+    Feature: 'Feature',
+    Slider: 'Slider',
+    DoctorProfile: 'DoctorProfile',
 }

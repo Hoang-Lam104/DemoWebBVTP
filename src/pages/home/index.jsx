@@ -54,6 +54,10 @@ const Home = () => {
         navigate('/bac-si/' + Id)
     }
 
+    const onClickTitle = (id) => {
+        navigate('/danh-sach-tin-tuc/' + id)
+    }
+
     if (loading) return (
         <Spin
             indicator={
@@ -85,7 +89,7 @@ const Home = () => {
             </div>
             <div id="service">
                 <div className="content_section">
-                    <h2 className="section_title">Dịch vụ kỹ thuật mới</h2>
+                    <h2 className="section_title" onClick={() => onClickTitle(35)} >Dịch vụ kỹ thuật mới</h2>
                     <p className="subtitle">Đặt lịch phẫu thuật cùng với các chuyên gia, bác sỹ đầu ngành Việt Nam với nhiều chuyên ngành</p>
                     <div className="list_post">
                         {serviceList.map(post => {
@@ -159,7 +163,7 @@ const Home = () => {
                     <h2 className="section_title">Tin tức và hoạt động</h2>
                     <p className="subtitle">Những tin tức được cập nhật hằng ngày từ Bệnh viện Đa khoa thành phố vinh</p>
                     <div className="new_items">
-                        <p className="title">Báo chí nói về Bệnh viện Đa khoa Thành phố Vinh</p>
+                        <p className="title" onClick={() => onClickTitle(11)}>Báo chí nói về Bệnh viện Đa khoa Thành phố Vinh</p>
                         <div className="list_post">
                             {newList.map(post => {
                                 return (
@@ -169,7 +173,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="new_items">
-                        <p className="title">Hoạt động Bệnh viện</p>
+                        <p className="title" onClick={() => onClickTitle(9)}>Hoạt động Bệnh viện</p>
                         <div className="list_post">
                             {actionList.map(post => {
                                 return (
@@ -179,7 +183,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="new_items">
-                        <p className="title">Góc từ thiện</p>
+                        <p className="title" onClick={() => onClickTitle(10)}>Góc từ thiện</p>
                         <div className="list_post">
                             {charityList.map(post => {
                                 return (
